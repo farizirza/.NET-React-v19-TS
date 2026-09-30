@@ -1,5 +1,5 @@
-import { render, cleanup } from "@testing-library/react"; // add cleanup
-import { afterEach, expect, test } from "vitest"; // add afterEach
+import { render, cleanup } from "@testing-library/react";
+import { afterEach, expect, test } from "vitest";
 import Pizza from "../Pizza";
 
 afterEach(cleanup);

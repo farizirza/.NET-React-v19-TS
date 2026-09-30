@@ -4,7 +4,7 @@ import createFetchMock from "vitest-fetch-mock";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { Route } from "../routes/contact.lazy";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({});
 
 const fetchMocker = createFetchMock(vi);
 fetchMocker.enableMocks();
