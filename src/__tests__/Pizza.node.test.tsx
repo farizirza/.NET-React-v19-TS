@@ -4,23 +4,23 @@ import Pizza from "../Pizza";
 
 afterEach(cleanup);
 
-test("alt text renders on image", async () => {
+test("alt text renders on image", () => {
   const name = "My Favorite Pizza";
   const src = "https://picsum.photos/200";
   const screen = render(
     <Pizza name={name} description="super cool pizza" image={src} />,
   );
 
-  const img = screen.getByRole("img");
+  const img = screen.getByRole("img") as HTMLImageElement;
   expect(img.src).toBe(src);
   expect(img.alt).toBe(name);
 });
 
-test("to have default image if none is provided", async () => {
+test("to have default image if none is provided", () => {
   const screen = render(
     <Pizza name={"Cool Pizza"} description="super cool pizza" />,
   );
 
-  const img = screen.getByRole("img");
+  const img = screen.getByRole("img") as HTMLImageElement;
   expect(img.src).not.toBe("");
 });

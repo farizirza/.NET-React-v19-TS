@@ -118,11 +118,11 @@ function Order() {
                 <span>
                   <input
                     onChange={(e) => setPizzaSize(e.target.value as PizzaSize)}
-                    checked={pizzaSize === "S"}
+                    checked={pizzaSize === "L"}
                     type="radio"
                     name="pizza-size"
-                    value="S"
-                    id="pizza-s"
+                    value="L"
+                    id="pizza-l"
                   />
                   <label htmlFor="pizza-l">Large</label>
                 </span>

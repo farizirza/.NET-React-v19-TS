@@ -11,15 +11,19 @@ fetchMocker.enableMocks();
 
 test("can submit contact form", async () => {
   fetchMocker.mockResponse(JSON.stringify({ status: "ok" }));
+  const ContactRoute = Route.options.component;
+  if (!ContactRoute) {
+    throw new Error("Contact route component is not defined");
+  }
   const screen = render(
     <QueryClientProvider client={queryClient}>
-      <Route.options.component />
+      <ContactRoute />
     </QueryClientProvider>,
   );
 
-  const nameInput = screen.getByPlaceholderText("Name");
-  const emailInput = screen.getByPlaceholderText("Email");
-  const msgTextArea = screen.getByPlaceholderText("Message");
+  const nameInput = screen.getByPlaceholderText("Name") as HTMLInputElement;
+  const emailInput = screen.getByPlaceholderText("Email") as HTMLInputElement;
+  const msgTextArea = screen.getByPlaceholderText("Message") as HTMLTextAreaElement;
 
   const testData = {
     name: "Brian",
