@@ -135,7 +135,7 @@ export const routeTree = rootRoute
 {
   "routes": {
     "__root__": {
-      "filePath": "__root.jsx",
+      "filePath": "__root.tsx",
       "children": [
         "/",
         "/contact",
@@ -144,16 +144,16 @@ export const routeTree = rootRoute
       ]
     },
     "/": {
-      "filePath": "index.lazy.jsx"
+      "filePath": "index.lazy.tsx"
     },
     "/contact": {
-      "filePath": "contact.lazy.jsx"
+      "filePath": "contact.lazy.tsx"
     },
     "/order": {
-      "filePath": "order.lazy.jsx"
+      "filePath": "order.lazy.tsx"
     },
     "/past": {
-      "filePath": "past.lazy.jsx"
+      "filePath": "past.lazy.tsx"
     }
   }
 }

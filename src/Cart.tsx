@@ -1,9 +1,16 @@
+import type { CartItem } from "./contexts";
+
+interface Props {
+  cart: CartItem[];
+  checkout: () => void;
+}
+
 const intl = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "USD", // feel free to change to your local currency
 });
 
-export default function Cart({ cart, checkout }) {
+export default function Cart({ cart, checkout }: Props) {
   let total = 0;
   for (let i = 0; i < cart.length; i++) {
     const current = cart[i];

@@ -1,4 +1,10 @@
-const Pizza = (props) => {
+interface Props {
+  name: string;
+  description: string;
+  image: string;
+}
+
+const Pizza = (props: Props) => {
   return (
     <div className="pizza">
       <h1>{props.name}</h1>
