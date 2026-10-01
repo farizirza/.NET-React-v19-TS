@@ -182,10 +182,6 @@ form > div > div > label {
   margin-bottom: 10px;
 }
 
-.pizza {
-  line-height: 1.5;
-}
-
 .pizza img {
   max-width: 200px;
   border: 1px solid var(--border);
@@ -229,13 +225,6 @@ button:disabled {
 .order-pizza {
   width: 100%;
   margin-left: 25px;
-}
-
-.pizza {
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .pizza-of-the-day {
