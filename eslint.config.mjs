@@ -7,6 +7,7 @@ import tseslint from "typescript-eslint";
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
+  { ignores: ["dist/"] },
   js.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
   {
