@@ -11,7 +11,10 @@
     <!-- div dengan id="root" akan menjadi tempat untuk merender komponen React. Semisal
     tidak tertampil di browser, maka kemungkinan ada kesalahan pada kode React yang menyebabkan error sehingga tidak bisa dirender dan muncul tulisan "not rendered".
     Cek console browser untuk melihat errornya. -->
-    <div id="modal"></div>
+    <div
+      id="modal"
+      class="fixed inset-0 z-10 flex items-center justify-center bg-black/90 empty:hidden"
+    ></div>
     <div id="root">not rendered</div>
     <!-- Content Delivery Network untuk React dan ReactDOM (Document Object Model). Pastikan versi yang digunakan 
     sesuai dengan versi React yang digunakan dalam proyek. Jika menggunakan versi yang

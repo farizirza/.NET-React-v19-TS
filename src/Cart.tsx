@@ -17,7 +17,7 @@ export default function Cart({ cart, checkout }: Props) {
     total += current.pizza.sizes[current.size];
   }
   return (
-    <div className="border-l border-border p-3.75 text-center leading-normal">
+    <div className="border-t border-border p-3.75 text-center leading-normal lg:border-t-0 lg:border-l">
       <h2>Cart</h2>
       <ul>
         {cart.map((item, index) => (

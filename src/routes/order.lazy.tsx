@@ -63,11 +63,11 @@ function Order() {
     "mx-3.75 mb-2.5 inline-flex h-20 w-20 cursor-pointer items-center justify-center rounded-[5px] border border-[#999] bg-border text-[#999] peer-checked:bg-white peer-checked:text-[#333] peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-primary";
 
   return (
-    <div className="order-page">
-      <div className="order">
+    <div className="mx-auto grid max-w-325 grid-cols-1 gap-12.5 lg:grid-cols-[2fr_1fr]">
+      <div className="w-full lg:ml-[5%]">
         <h2>Create Order</h2>
         <form
-          className="flex justify-between"
+          className="flex flex-col md:flex-row md:justify-between"
           onSubmit={(e) => {
             e.preventDefault();
             if (!selectedPizza || !price) {
@@ -79,7 +79,7 @@ function Order() {
             ]);
           }}
         >
-          <div className="my-2.5 w-full border-r border-border p-3.75 text-center">
+          <div className="my-2.5 w-full border-b border-border p-3.75 text-center md:border-r md:border-b-0">
             <div className="my-2.5 text-center">
               <label
                 htmlFor="pizza-type"
@@ -159,7 +159,7 @@ function Order() {
           {loading || !selectedPizza ? (
             <h3>LOADING …</h3>
           ) : (
-            <div className="my-2.5 ml-6.25 w-full p-3.75 text-center">
+            <div className="my-2.5 w-full p-3.75 text-center md:ml-6.25">
               <Pizza
                 name={selectedPizza.name}
                 description={selectedPizza.description}
