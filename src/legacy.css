@@ -227,51 +227,12 @@ button:disabled {
   margin-left: 25px;
 }
 
-.pizza-of-the-day {
-  border-top: 1px solid var(--border);
-  margin-top: 50px;
-  width: 100%;
-}
-
-.pizza-of-the-day > div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.pizza-of-the-day > h2 {
-  text-align: center;
-}
-
-.pizza-of-the-day-image {
-  max-width: 200px;
-  border-radius: 5px;
-  border: 1px solid var(--border);
-}
-
-.pizza-of-the-day-info {
-  margin-right: 30px;
-  line-height: 2;
-  text-align: center;
-}
-
 .order-page {
   max-width: 1300px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 50px;
-}
-
-.cart {
-  border-left: 1px solid var(--border);
-  line-height: 1.5;
-  text-align: center;
-  padding: 15px;
-}
-
-.cart p {
-  margin: 15px 0;
 }
 
 .index h1 {
@@ -398,16 +359,6 @@ tbody tr:last-of-type {
 }
 td img {
   width: 50px;
-}
-
-.error-boundary {
-  min-height: 400px;
-  text-align: center;
-}
-
-.error-boundary a {
-  color: var(--primary);
-  text-decoration: underline;
 }
 
 .contact form {

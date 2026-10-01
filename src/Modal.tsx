@@ -1,22 +1,27 @@
 import { useEffect, useRef } from "react";
-import type {ReactNode } from "react";
+import type { ReactNode } from "react";
 import { createPortal } from "react-dom";
 
 const Modal = ({ children }: { children: ReactNode }) => {
   const elRef = useRef<HTMLDivElement | null>(null);
+
   if (!elRef.current) {
     elRef.current = document.createElement("div");
   }
 
   useEffect(() => {
     const modalRoot = document.getElementById("modal");
-    if (!modalRoot || !elRef.current) {
+    const el = elRef.current;
+
+    if (!modalRoot || !el) {
       return;
     }
-    modalRoot.appendChild(elRef.current);
+
+    modalRoot.appendChild(el);
+
     return () => {
-      if (elRef.current) {
-        modalRoot.removeChild(elRef.current);
+      if (modalRoot.contains(el)) {
+        modalRoot.removeChild(el);
       }
     };
   }, []);
