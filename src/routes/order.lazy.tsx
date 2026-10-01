@@ -157,7 +157,7 @@ function Order() {
             </button>
           </div>
           {loading || !selectedPizza ? (
-            <h3>LOADING …</h3>
+            <h3 className="text-[1.17em] font-bold">LOADING …</h3>
           ) : (
             <div className="my-2.5 w-full p-3.75 text-center md:ml-6.25">
               <Pizza

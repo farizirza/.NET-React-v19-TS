@@ -26,7 +26,7 @@ function ContactRoute() {
   });
 
   const fieldClass =
-    "my-3.75 w-full max-w-125 rounded-[5px] border-2 border-border p-2 outline-none focus:border-primary";
+    "my-3.75 w-full max-w-125 rounded-[5px] border-2 border-border p-2 outline-none focus:border-primary bg-white";
 
   return (
     <div>
