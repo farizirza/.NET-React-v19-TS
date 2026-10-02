@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { createLazyFileRoute } from "@tanstack/react-router";
-import { useQuery } from "@tanstack/react-query";
 import { skipToken } from "@reduxjs/toolkit/query/react";
-import { useGetPastOrderQuery } from "../api/pizzaApi";
-import getPastOrders from "../api/getPastOrders";
+import { useGetPastOrdersQuery, useGetPastOrderQuery } from "../api/pizzaApi";
 import Modal from "../Modal";
 import ErrorBoundary from "../ErrorBoundary";
 
@@ -35,17 +33,17 @@ function ErrorBoundaryWrappedPastOrderRoutes() {
 function PastOrdersRoute() {
   const [page, setPage] = useState(1);
   const [focusedOrder, setFocusedOrder] = useState<number>();
-  const { isLoading, data } = useQuery({
-    queryKey: ["past-orders", page],
-    queryFn: () => getPastOrders(page),
-    staleTime: 30000,
-  });
+  const {
+    isLoading,
+    isFetching,
+    currentData: data,
+  } = useGetPastOrdersQuery(page);
 
   const { data: pastOrderData } = useGetPastOrderQuery(
     focusedOrder ?? skipToken,
   );
 
-  if (isLoading) {
+  if (isLoading || (isFetching && !data)) {
     return (
       <div className="mx-auto min-h-162.5 w-[90%] max-w-225">
         <h2>LOADING …</h2>
