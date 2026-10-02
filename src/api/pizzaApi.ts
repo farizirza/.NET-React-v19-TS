@@ -26,6 +26,16 @@ export const pizzaApi = createApi({
         body: { cart },
       }),
     }),
+    postContact: build.mutation<
+      unknown,
+      { name: string; email: string; message: string }
+    >({
+      query: (contact) => ({
+        url: "contact",
+        method: "POST",
+        body: contact,
+      }),
+    }),
   }),
 });
 
@@ -35,4 +45,5 @@ export const {
   useGetPastOrdersQuery,
   useGetPastOrderQuery,
   usePlaceOrderMutation,
+  usePostContactMutation,
 } = pizzaApi;

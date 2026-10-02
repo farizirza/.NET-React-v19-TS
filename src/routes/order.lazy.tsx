@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { createLazyFileRoute } from "@tanstack/react-router";
 import Cart from "../Cart";
 import Pizza from "../Pizza";
