@@ -11,7 +11,7 @@ import {
   selectPizzaType,
   selectPizzaSize,
 } from "../orderSlice";
-import { useGetPizzasQuery } from "../api/pizzaApi";
+import { useGetPizzasQuery, usePlaceOrderMutation } from "../api/pizzaApi";
 
 // feel free to change en-US / USD to your locale
 const intl = new Intl.NumberFormat("en-US", {
@@ -27,27 +27,15 @@ function Order() {
   const pizzaType = useAppSelector(selectPizzaType);
   const pizzaSize = useAppSelector(selectPizzaSize);
   const { data: pizzaTypes = [], isLoading: isLoadingPizzas } =useGetPizzasQuery();
-  const [isCheckingOut, setIsCheckingOut] = useState(false);
-  const loading = isLoadingPizzas || isCheckingOut;
+  const [placeOrder, { isLoading: isPlacingOrder }] = usePlaceOrderMutation();
+  const loading = isLoadingPizzas || isPlacingOrder;
   const cart = useAppSelector(selectCartItems);
   const dispatch = useAppDispatch();
 
   async function checkout() {
-    setIsCheckingOut(true);
-
-    await fetch("/api/order", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        cart,
-      }),
-    });
-
+    await placeOrder(cart);
     dispatch(clearCart());
-    setIsCheckingOut(false);
-  }
+}
 
   let price: string | undefined;
   let selectedPizza: PizzaType | undefined;
