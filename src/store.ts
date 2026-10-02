@@ -1,7 +1,8 @@
 import { combineSlices, configureStore } from "@reduxjs/toolkit";
 import { cartSlice } from "./cartSlice";
+import { orderSlice } from "./orderSlice";
 
-const rootReducer = combineSlices(cartSlice);
+const rootReducer = combineSlices(cartSlice, orderSlice);
 
 export type RootState = ReturnType<typeof rootReducer>;
 
