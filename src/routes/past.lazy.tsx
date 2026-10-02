@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { skipToken, useQuery } from "@tanstack/react-query";
 import { createLazyFileRoute } from "@tanstack/react-router";
+import { useQuery } from "@tanstack/react-query";
+import { skipToken } from "@reduxjs/toolkit/query/react";
+import { useGetPastOrderQuery } from "../api/pizzaApi";
 import getPastOrders from "../api/getPastOrders";
-import getPastOrder from "../api/getPastOrder";
 import Modal from "../Modal";
 import ErrorBoundary from "../ErrorBoundary";
-import type { PastOrderDetail } from "../APIResponsesTypes";
 
 export const Route = createLazyFileRoute("/past")({
   component: ErrorBoundaryWrappedPastOrderRoutes,
@@ -41,10 +41,9 @@ function PastOrdersRoute() {
     staleTime: 30000,
   });
 
-  const { data: pastOrderData } = useQuery<PastOrderDetail>({
-    queryKey: ["past-order", focusedOrder],
-    queryFn: focusedOrder ? () => getPastOrder(focusedOrder) : skipToken,
-  });
+  const { data: pastOrderData } = useGetPastOrderQuery(
+    focusedOrder ?? skipToken,
+  );
 
   if (isLoading) {
     return (
