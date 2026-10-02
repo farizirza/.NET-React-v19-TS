@@ -8,7 +8,10 @@ export const pizzaApi = createApi({
     getPizzas: build.query<Pizza[], void>({
       query: () => "pizzas",
     }),
+    getPizzaOfTheDay: build.query<Pizza, void>({
+      query: () => "pizza-of-the-day",
+    }),
   }),
 });
 
-export const { useGetPizzasQuery } = pizzaApi;
+export const { useGetPizzasQuery, useGetPizzaOfTheDayQuery } = pizzaApi;
