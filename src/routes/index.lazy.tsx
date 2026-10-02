@@ -6,8 +6,8 @@ export const Route = createLazyFileRoute("/")({
 
 function Index() {
   return (
-    <div className="mx-auto my-30 grid max-w-175 grid-cols-1 gap-7.5 sm:grid-cols-2">
-      <div className="flex flex-col">
+    <div className="mx-auto my-30 grid max-w-175 grid-cols-1 gap-7.5 px-4 sm:grid-cols-2 sm:px-0">
+      <div className="flex flex-col items-center text-center sm:items-start sm:text-left">
         <h1 className="font-pacifico text-[2em] font-normal text-primary">Padre Gino's</h1>
         <p className="max-w-78.75 text-[40px] font-bold uppercase text-secondary">
           Pizza & Art at a location near you
