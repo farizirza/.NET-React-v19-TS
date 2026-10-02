@@ -5,6 +5,7 @@ import type { CartItem } from "../cartSlice";
 export const pizzaApi = createApi({
   reducerPath: "pizzaApi",
   baseQuery: fetchBaseQuery({ baseUrl: "/api" }),
+  tagTypes: ["PastOrders"],
   endpoints: (build) => ({
     getPizzas: build.query<Pizza[], void>({
       query: () => "pizzas",
@@ -14,6 +15,7 @@ export const pizzaApi = createApi({
     }),
     getPastOrders: build.query<PastOrder[], number>({
       query: (page) => `past-orders?page=${page}`,
+      providesTags: ["PastOrders"],
     }),
     getPastOrder: build.query<PastOrderDetail, number>({
       query: (order) => `past-order/${order}`,
@@ -25,6 +27,8 @@ export const pizzaApi = createApi({
         method: "POST",
         body: { cart },
       }),
+      // a new order changes the past-orders list
+      invalidatesTags: ["PastOrders"],
     }),
   }),
 });
