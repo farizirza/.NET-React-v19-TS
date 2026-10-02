@@ -1,8 +1,9 @@
 import { combineSlices, configureStore } from "@reduxjs/toolkit";
 import { cartSlice } from "./cartSlice";
 import { orderSlice } from "./orderSlice";
+import { pizzaApi } from "./api/pizzaApi";
 
-const rootReducer = combineSlices(cartSlice, orderSlice);
+const rootReducer = combineSlices(cartSlice, orderSlice, pizzaApi);
 
 export type RootState = ReturnType<typeof rootReducer>;
 
@@ -10,6 +11,8 @@ export function makeStore(preloadedState?: Partial<RootState>) {
   return configureStore({
     reducer: rootReducer,
     preloadedState,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(pizzaApi.middleware),
   });
 }
 
